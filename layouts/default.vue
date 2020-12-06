@@ -1,62 +1,102 @@
 <template>
   <div>
+    <TheHeader :companyData="companyData" />
     <Nuxt />
+    <TheFooter />
   </div>
 </template>
 
-<style>
+<script>
+import TheHeader from "@/components/header/TheHeader.vue";
+import TheFooter from "@/components/footer/TheFooter.vue";
+export default {
+  component: {
+    TheHeader,
+    TheFooter,
+  },
+
+  async fetch() {
+    this.companyData = await this.$prismic.api.getSingle("bedrijfsgegevens");
+  },
+  data() {
+    return {
+      companyData: {},
+    };
+  },
+};
+</script>
+
+<style lang="scss">
+/* COLORS */
+$color-primary: #4fb797;
+$color-secondary: #0a0d1c;
+$color-tertiary: #ffffff;
+
+/* FONTS */
+@font-face {
+  font-family: "ProductSans";
+  font-weight: bold;
+  src: url(~assets/fonts/ProductSans-Bold.woff) format("truetype");
+}
+
+@font-face {
+  font-family: "ProductSans";
+  font-weight: normal;
+  src: url(~assets/fonts/ProductSans-Regular.woff) format("truetype");
+}
+
+/* TEMPLATE CSS */
+* {
+  position: relative;
+}
+
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+  font-size: 1px;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+html,
+body {
+  font-family: "ProductSans";
+  background: radial-gradient(
+      193.51% 382.67% at 193.51% 22.56%,
+      rgba(18, 49, 45, 0.8) 0%,
+      rgba(10, 13, 28, 0.8) 100%
+    ),
+    #000000;
+  color: $color-tertiary;
 }
 
-.button--green {
+body {
+  font-size: 14rem;
+  padding: 40rem;
+}
+
+a {
+  color: $color-tertiary;
   display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
+  &:after {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    width: 15px;
+    height: 1px;
+    background-color: $color-tertiary;
+    bottom: -3px;
+    left: calc(50% - 7.5px);
+    transition: left 0.4s ease-in-out, background-color 0.4s ease-in-out,
+      width 0.4s ease-in-out;
+  }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
+  &:hover {
+    text-decoration: none;
+    color: $color-tertiary;
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+    &:after {
+      width: 100%;
+      left: 0;
+      background-color: $color-primary;
+    }
+  }
 }
 </style>
