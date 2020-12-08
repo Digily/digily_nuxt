@@ -9,14 +9,12 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    'reset-css/reset.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -28,7 +26,12 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    '@nuxtjs/prismic'
   ],
+  prismic: {
+    endpoint: 'https://digily.cdn.prismic.io/api/v2',
+    /* see configuration for more */
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
