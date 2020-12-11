@@ -3,6 +3,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 export default {
 
   head (){
@@ -39,6 +40,9 @@ export default {
     this.page = homeData.data;
   }
 };
+=======
+export default {};
+>>>>>>> 1995f96f097dff28b55e3a580d729ff5c5e3470f
 </script>
 
 <style scoped>

@@ -4,6 +4,7 @@
       <div class="col-md-6"><NuxtLink to="/"><prismic-image :field="companyData.logo_small" /></NuxtLink></div>
       <div class="col-md-6">
         <TheHeaderNav />
+
       </div>
     </div>
   </header>
@@ -33,5 +34,4 @@ a.nuxt-link-active{
     transition:none;
   }
 }
-
 </style>
