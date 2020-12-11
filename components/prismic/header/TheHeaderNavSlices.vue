@@ -16,6 +16,7 @@
 import HeaderNavLinkSlice from "@/components/prismic/header/slices/HeaderNavLinkSlice.vue";
 import HeaderNavAnchorSlice from "@/components/prismic/header/slices/HeaderNavAnchorSlice.vue";
 
+
 export default {
     components: {
         HeaderNavLinkSlice,
@@ -38,6 +39,10 @@ export default {
 
         li:not(:first-child) {
             margin-left:75px;
+        }
+
+        a{
+            text-decoration:none;
         }
     }
 </style>

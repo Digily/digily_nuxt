@@ -1,6 +1,6 @@
 <template>
   <nav id="header-nav-container">
-    <TheHeaderNavSlices :slices="headerNav" />
+      <TheHeaderNavSlices :slices="headerNav" />
   </nav>
 </template>
 
@@ -17,6 +17,7 @@ export default {
       headerNav:[]
     }
   },
+  
   async fetch() {
   // Fetch Header & Footer navigatie
     const headerNav = await this.$prismic.api.getSingle("navigatie");

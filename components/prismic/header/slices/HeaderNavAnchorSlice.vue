@@ -1,6 +1,6 @@
 <template>
 <span>
-    <a :href="'#'+slice.link">{{ slice.text }}</a>
+    <nuxt-link :to="{ path: '/', hash:'#'+slice.link}">{{ slice.text }}</nuxt-link>
 </span>
 </template>
 
@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+ 
 </style>

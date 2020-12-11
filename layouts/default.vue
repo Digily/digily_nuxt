@@ -1,9 +1,10 @@
 <template>
   <div>
     <TheHeader :companyData="companyData" />
-    <Nuxt />
+    <Nuxt keep-alive />
     <!-- <TheFooter /> -->
   </div>
+  
 </template>
 
 <script>
@@ -89,6 +90,7 @@ body {
 a {
   color: $color-tertiary;
   display: inline-block;
+  text-decoration:none;
 
   &:after {
     content: "";
@@ -114,4 +116,5 @@ a {
     }
   }
 }
+
 </style>
