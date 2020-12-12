@@ -14,14 +14,10 @@
     "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
-<<<<<<< HEAD
     "prismic-dom": "^2.2.4",
     "prismic-javascript": "^3.0.2",
     "reset-css": "^5.0.1",
     "sass-loader": "^10.1.0"
-=======
-    "reset-css": "^5.0.1"
->>>>>>> 1995f96f097dff28b55e3a580d729ff5c5e3470f
   },
   "devDependencies": {
     "@nuxtjs/prismic": "^1.2.4",
