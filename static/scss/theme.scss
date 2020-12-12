@@ -1,0 +1,169 @@
+/* COLORS */
+
+$color-primary: rgba(79, 183, 151, 1);
+$color-secondary: rgba(10, 13, 28, 1);
+$color-tertiary: rgba(255, 255, 255, 1);
+
+/*********************************/
+/*********************************/
+
+/* FONTS */
+@font-face {
+  font-family: "ProductSans";
+  font-weight: bold;
+  src: url(~assets/fonts/ProductSans-Bold.woff) format("truetype");
+}
+
+@font-face {
+  font-family: "ProductSans";
+  font-weight: normal;
+  src: url(~assets/fonts/ProductSans-Regular.woff) format("truetype");
+}
+
+$title-font:"ProductSans", sans-serif;
+$text-font:"ProductSans", sans-serif;
+$default-font-size:14rem;
+
+/*********************************/
+/*********************************/
+
+/* SITE VARIABLES */
+
+$site-border:40rem;
+
+/*********************************/
+/*********************************/
+
+/* TEMPLATE CSS */
+* {
+  position: relative;
+}
+
+html {
+  font-size: 1px;
+}
+
+html,
+body {
+  font-family: $title_font;
+  background: radial-gradient(
+      at 50% 50%,
+      rgba(18, 49, 45, 0.3) 0%,
+      rgba(10, 13, 28, 0.8) 100%
+    ),
+    #000000;
+    transition: background .4s ease-in-out;
+  color: $color-tertiary;
+}
+
+body {
+  font-size: $default-font-size;
+  overflow: hidden;
+  min-height:100vh;
+}
+
+// full height Nuxt layout hack
+div#__nuxt,
+#__layout,
+#app {
+  min-height: 100vh;
+}
+
+#__layout > div,
+.page-wrapper{
+  padding: $site-border;
+  min-height:calc( 100vh - #{$site-border});
+}
+
+.page-wrapper{
+  padding:0;
+}
+
+a {
+  color: $color-tertiary;
+  display: inline-block;
+  text-decoration: none;
+
+  &:after {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    width: 15px;
+    height: 1px;
+    background-color: $color-tertiary;
+    bottom: -3px;
+    left: calc(50% - 7.5px);
+    transition: left 0.4s ease-in-out, background-color 0.4s ease-in-out,
+      width 0.4s ease-in-out;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $color-tertiary;
+
+    &:after {
+      width: 100%;
+      left: 0;
+      background-color: $color-primary;
+    }
+  }
+}
+
+/*********************************/
+/*********************************/
+
+/* TYPOGRAPHY */
+
+h1, .h1{
+  font-size:55rem;
+  line-height:55rem;
+  font-weight:bold;
+}
+
+h2, .h2{
+
+}
+
+h3, .h3{
+  
+}
+
+h4, .h4{
+  
+}
+
+/*********************************/
+/*********************************/
+
+
+/* HELPER CLASSES */
+
+.text-center{
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.v-center-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+
+.height-full{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-top-50{
+  padding-top:50rem;
+}
+
+.p-top-100{
+  padding-top:100rem;
+}
+
+/*********************************/
+/*********************************/

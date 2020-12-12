@@ -14,13 +14,15 @@
     "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
+    "nuxt-gsap": "^0.1.4",
     "prismic-dom": "^2.2.4",
     "prismic-javascript": "^3.0.2",
-    "reset-css": "^5.0.1",
-    "sass-loader": "^10.1.0"
+    "reset-css": "^5.0.1"
   },
   "devDependencies": {
     "@nuxtjs/prismic": "^1.2.4",
-    "node-sass": "^5.0.0"
+    "@nuxtjs/style-resources": "^1.0.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0"
   }
 }

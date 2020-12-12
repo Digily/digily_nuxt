@@ -1,10 +1,10 @@
 <template>
   <div>
+    <div id="cursor"></div>
     <TheHeader :companyData="companyData" />
     <Nuxt keep-alive />
     <!-- <TheFooter /> -->
   </div>
-  
 </template>
 
 <script>
@@ -28,92 +28,56 @@ export default {
       footerNav: {},
     };
   },
-  head(){
+  head() {
     return {
       link: [
         {
-          rel:'icon',
-          type:'image/svg+xml',
-          href: this.companyData.favicon.url
-        }
-      ]
-    }
-  }
+          rel: "icon",
+          type: "image/svg+xml",
+          href: this.companyData.favicon.url,
+        },
+      ],
+    };
+  },
 };
 </script>
 
 <style lang="scss">
-/* COLORS */
-$color-primary: #4fb797;
-$color-secondary: #0a0d1c;
-$color-tertiary: #ffffff;
-
-/* FONTS */
-@font-face {
-  font-family: "ProductSans";
-  font-weight: bold;
-  src: url(~assets/fonts/ProductSans-Bold.woff) format("truetype");
-}
-
-@font-face {
-  font-family: "ProductSans";
-  font-weight: normal;
-  src: url(~assets/fonts/ProductSans-Regular.woff) format("truetype");
-}
-
-/* TEMPLATE CSS */
 * {
-  position: relative;
+  cursor: none;
 }
 
-html {
-  font-size: 1px;
-}
+#cursor {
+  width: 5px;
+  height: 5px;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  left: 20rem;
+  top: 20rem;
+  transition-duration: 50ms;
+  z-index: 1;
+  transition-timing-function: ease-out;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+  transition-property: background-color, width, height, mix-blend-mode, filter,
+    box-shadow;
+  transform-origin: 100% 100%;
+  background: transparent;
+  mix-blend-mode: normal;
+  box-shadow: 0;
+  filter: blur(0);
 
-html,
-body {
-  font-family: "ProductSans";
-  background: radial-gradient(
-      193.51% 382.67% at 193.51% 22.56%,
-      rgba(18, 49, 45, 0.8) 0%,
-      rgba(10, 13, 28, 0.8) 100%
-    ),
-    #000000;
-  color: $color-tertiary;
-}
-
-body {
-  font-size: 14rem;
-  padding: 40rem;
-}
-
-a {
-  color: $color-tertiary;
-  display: inline-block;
-  text-decoration:none;
-
-  &:after {
-    content: "";
-    z-index: 1;
-    position: absolute;
-    width: 15px;
-    height: 1px;
-    background-color: $color-tertiary;
-    bottom: -3px;
-    left: calc(50% - 7.5px);
-    transition: left 0.4s ease-in-out, background-color 0.4s ease-in-out,
-      width 0.4s ease-in-out;
-  }
-
-  &:hover {
-    text-decoration: none;
-    color: $color-tertiary;
-
-    &:after {
-      width: 100%;
-      left: 0;
-      background-color: $color-primary;
-    }
+  &.hover {
+    width: 25px;
+    height: 25px;
+    border: 1px solid $color-primary;
+    background: $color-primary;
+    mix-blend-mode: screen;
+    box-shadow: 0px 0px 50px 0px rgba(79, 183, 151, 0.7),
+      0px 0px 150px 0px rgba(79, 183, 151, 0.5);
+    filter: blur(15px);
   }
 }
 </style>
