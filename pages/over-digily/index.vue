@@ -33,9 +33,18 @@ export default {
       page: [],
     };
   },
-  async fetch() {
-    const pageData = await this.$prismic.api.getByUID("pagina", "over-digily");
-    this.page = pageData.data;
+  async asyncData({ $prismic, params, error }) {
+    try {
+      const pageData = await $prismic.api.getByUID("pagina", "over-digily");
+      const page = pageData.data;
+      console.log("data in pageData is", page);
+
+      return {
+        page,
+      };
+    } catch (error) {
+      console.log("error", error);
+    }
   },
 };
 </script>

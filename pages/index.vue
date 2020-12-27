@@ -8,7 +8,7 @@
         <prismic-rich-text :field="page.description" />
       </div>
     </div>
-    <div id="bm"></div>
+    <!--<div id="bm"></div> -->
   </div>
 </template>
 
@@ -43,9 +43,22 @@ export default {
       page: [],
     };
   },
-  async fetch() {
+  /*async fetch() {
     const pageData = await this.$prismic.api.getByUID("pagina", "home");
     this.page = pageData.data;
+  },*/
+  async asyncData({ $prismic, params, error }) {
+    try {
+      const pageData = await $prismic.api.getByUID("pagina", "home");
+      const page = pageData.data;
+      console.log("data in pageData is", page);
+
+      return {
+        page,
+      };
+    } catch (error) {
+      console.log("error", error);
+    }
   },
   mounted() {
     this.$nextTick(() => {
@@ -56,14 +69,6 @@ export default {
       });
       tl.to("#logo_home", 2, { opacity: 1, paddingTop: 40 + "rem" }),
         tl.to(".title-animated", 2, { opacity: 1, paddingTop: 15 + "vh" });
-    });
-
-    var animation = lottie.loadAnimation({
-      container: document.getElementById("bm"),
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      path: "/digily.json",
     });
   },
 };

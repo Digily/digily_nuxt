@@ -2,9 +2,12 @@
   <header>
     <div class="row">
       <div class="col-md-6">
-        <NuxtLink class="anim-link" to="/"
+        <!--<NuxtLink class="anim-link" to="/"
           ><prismic-image :field="companyData.logo_small"
-        /></NuxtLink>
+        /></NuxtLink> -->
+        <NuxtLink class="anim-link" to="/"
+          ><div id="digily-logo"></div
+        ></NuxtLink>
       </div>
       <div class="col-md-6">
         <TheHeaderNav />
@@ -30,6 +33,29 @@ export default {
       required: true,
     },
   },
+  mounted() {
+    // logo animation
+    let logoContainer = document.getElementById("digily-logo");
+    let logoAnimation = lottie.loadAnimation({
+      container: logoContainer,
+      renderer: "svg",
+      loop: false,
+      autoplay: false,
+      path: "/digily.json",
+    });
+
+    // add hover animations
+    var directionMenu = 1;
+    logoContainer.addEventListener("mouseenter", (e) => {
+      logoAnimation.setDirection(directionMenu);
+      logoAnimation.play();
+    });
+
+    logoContainer.addEventListener("mouseleave", (e) => {
+      logoAnimation.setDirection(-directionMenu);
+      logoAnimation.play();
+    });
+  },
 };
 </script>
 
@@ -39,6 +65,20 @@ a.nuxt-link-active {
     width: 0;
     background: none;
     transition: none;
+  }
+}
+
+#digily-logo {
+  width: 75px;
+  display: inline-block;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+  .col-md-6 {
+    width: 50%;
   }
 }
 </style>
